@@ -175,10 +175,10 @@ namespace Particle3DSample
 
             for (int i = 0; i < settings.MaxParticles; i++)
             {
-                particles[i * 4 + 0].Corner = new Short2(-1, -1);
-                particles[i * 4 + 1].Corner = new Short2(1, -1);
-                particles[i * 4 + 2].Corner = new Short2(1, 1);
-                particles[i * 4 + 3].Corner = new Short2(-1, 1);
+                particles[i * 4 + 0].Corner = new Vector2(-1, -1);
+                particles[i * 4 + 1].Corner = new Vector2(1, -1);
+                particles[i * 4 + 2].Corner = new Vector2(1, 1);
+                particles[i * 4 + 3].Corner = new Vector2(-1, 1);
             }
 
             base.Initialize();
@@ -235,7 +235,7 @@ namespace Particle3DSample
             // the effect with parameters that are specific to this particular
             // particle system. By cloning the effect, we prevent one particle system
             // from stomping over the parameter settings of another.
-            
+
             particleEffect = effect.Clone();
 
             EffectParameterCollection parameters = particleEffect.Parameters;
@@ -256,10 +256,10 @@ namespace Particle3DSample
 
             parameters["RotateSpeed"].SetValue(
                 new Vector2(settings.MinRotateSpeed, settings.MaxRotateSpeed));
-            
+
             parameters["StartSize"].SetValue(
                 new Vector2(settings.MinStartSize, settings.MaxStartSize));
-            
+
             parameters["EndSize"].SetValue(
                 new Vector2(settings.MinEndSize, settings.MaxEndSize));
 
@@ -362,7 +362,7 @@ namespace Particle3DSample
             }
         }
 
-        
+
         /// <summary>
         /// Draws the particle system.
         /// </summary>

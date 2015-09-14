@@ -285,7 +285,7 @@ namespace Particle3DSample
             fireParticles.SetCamera(view, projection);
 
             // Draw our background grid and message text.
-            //DrawGrid(view, projection);
+            DrawGrid(view, projection);
 
             DrawMessage();
 
@@ -305,20 +305,22 @@ namespace Particle3DSample
             device.DepthStencilState = DepthStencilState.Default;
             device.SamplerStates[0] = SamplerState.LinearWrap;
 
-            //foreach (ModelMesh mesh in grid.Meshes)
-            //{
-            //    foreach (BasicEffect effect in mesh.Effects)
-            //    {
-            //        effect.EnableDefaultLighting();
-            //        effect.Texture = gridTexture;
-            //        effect.World = Matrix.Identity;
-            //        effect.View = view;
-            //        effect.Projection = projection;
-            //    }
-            //    //mesh.Draw();
-            //}
+            foreach (ModelMesh mesh in grid.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    //effect.EnableDefaultLighting();
+                    //effect.LightingEnabled = true;
+                    effect.Texture = gridTexture;
+                    effect.World = Matrix.Identity;
+                    effect.View = view;
+                    effect.Projection = projection;
+                    effect.VertexColorEnabled = true;
+                }
+                //mesh.Draw();
+            }
 
-            grid.Draw(Matrix.Identity, view, projection);
+            //grid.Draw(Matrix.Identity, view, projection);
         }
 
 
