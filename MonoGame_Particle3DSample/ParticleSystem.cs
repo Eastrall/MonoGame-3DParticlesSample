@@ -235,7 +235,7 @@ namespace Particle3DSample
             // the effect with parameters that are specific to this particular
             // particle system. By cloning the effect, we prevent one particle system
             // from stomping over the parameter settings of another.
-
+            
             particleEffect = effect.Clone();
 
             EffectParameterCollection parameters = particleEffect.Parameters;
@@ -256,10 +256,10 @@ namespace Particle3DSample
 
             parameters["RotateSpeed"].SetValue(
                 new Vector2(settings.MinRotateSpeed, settings.MaxRotateSpeed));
-
+            
             parameters["StartSize"].SetValue(
                 new Vector2(settings.MinStartSize, settings.MaxStartSize));
-
+            
             parameters["EndSize"].SetValue(
                 new Vector2(settings.MinEndSize, settings.MaxEndSize));
 
@@ -362,7 +362,7 @@ namespace Particle3DSample
             }
         }
 
-
+        
         /// <summary>
         /// Draws the particle system.
         /// </summary>

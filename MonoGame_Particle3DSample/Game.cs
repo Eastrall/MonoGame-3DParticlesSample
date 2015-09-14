@@ -32,7 +32,6 @@ namespace Particle3DSample
         SpriteBatch spriteBatch;
         SpriteFont font;
         Model grid;
-        Texture2D gridTexture;
 
 
         // This sample uses five different particle systems.
@@ -89,7 +88,6 @@ namespace Particle3DSample
         /// </summary>
         public Particle3DSampleGame()
         {
-            this.IsMouseVisible = true;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
@@ -126,7 +124,6 @@ namespace Particle3DSample
 
             font = Content.Load<SpriteFont>("font");
             grid = Content.Load<Model>("grid");
-            gridTexture = Content.Load<Texture2D>("checker");
         }
 
 
@@ -305,22 +302,7 @@ namespace Particle3DSample
             device.DepthStencilState = DepthStencilState.Default;
             device.SamplerStates[0] = SamplerState.LinearWrap;
 
-            foreach (ModelMesh mesh in grid.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    //effect.EnableDefaultLighting();
-                    //effect.LightingEnabled = true;
-                    effect.Texture = gridTexture;
-                    effect.World = Matrix.Identity;
-                    effect.View = view;
-                    effect.Projection = projection;
-                    effect.VertexColorEnabled = true;
-                }
-                //mesh.Draw();
-            }
-
-            //grid.Draw(Matrix.Identity, view, projection);
+            grid.Draw(Matrix.Identity, view, projection);
         }
 
 

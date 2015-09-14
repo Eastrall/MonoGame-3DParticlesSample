@@ -21,11 +21,11 @@ namespace Particle3DSample
     /// </summary>
     struct ParticleVertex
     {
-        // Stores which corner of the particle quad this vertex represents.
-        public Vector2 Corner;
-
         // Stores the starting position of the particle.
         public Vector3 Position;
+
+        // Stores which corner of the particle quad this vertex represents.
+        public Vector2 Corner;
 
         // Stores the starting velocity of the particle.
         public Vector3 Velocity;
@@ -38,7 +38,7 @@ namespace Particle3DSample
 
 
         public static readonly VertexDeclaration VertexDeclaration = new VertexDeclaration
-(
+        (
           new VertexElement(0, VertexElementFormat.Vector3,
                                  VertexElementUsage.Position, 0),
           new VertexElement(12, VertexElementFormat.Vector2,
@@ -49,7 +49,7 @@ namespace Particle3DSample
                                  VertexElementUsage.Color, 0),
           new VertexElement(36, VertexElementFormat.Single,
                                  VertexElementUsage.TextureCoordinate, 0)
-);
+        );
 
         public const int SizeInBytes = 40;
     }
